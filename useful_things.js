@@ -34,4 +34,4 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
   return PValue
 }
 
-/*I realized the moment.js was a thing*/
+/*I realized that moment.js was a thing*/
