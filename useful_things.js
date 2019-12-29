@@ -83,7 +83,7 @@ function timefromat(datetime, dateformat, timeformat) {
   if(dateformat == "D-M-yyyy"){var Retvar =  "{} {} {} {}".format(dayNames[day], datend, monthNames[month-1], year)}
   if(dateformat == "yyyy-D-M"){var Retvar =  "{} {} {} {}".format(year, dayNames[day], datend, monthNames[month-1])}
   if(dateformat == "yyyy-M-D"){var Retvar =  "{} {} {} {}".format(year, monthNames[month-1], dayNames[day], datend)}
-  if(dateformat == "M-D-yyyy"){var Retvar =  "{} {} {} {}".format(monthNames[month-1], year, dayNames[day], datend)}
+  if(dateformat == "M-yyyy-D"){var Retvar =  "{} {} {} {}".format(monthNames[month-1], year, dayNames[day], datend)}
   if(dateformat == "M-D-yyyy"){var Retvar =  "{} {} {} {}".format(monthNames[month-1], dayNames[day], datend, year)}
   if(timeformat != undefined){return "{} {}".format(Retvar,time)}else{return Retvar}
 }
