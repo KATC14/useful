@@ -35,3 +35,30 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
 }
 
 /*I realized that moment.js was a thing*/
+
+function checker(value, prohibited, ra) {
+  if(ra == true){
+    var pa = []
+    var notarray = ""
+    for (var i = 0; i < prohibited.length; i++) {
+      if (value.indexOf(prohibited[i].toLowerCase()) > -1) {
+        pa.push(prohibited[i])
+      }
+    }
+    for (var i2 = 0; i2 < pa.length; i2++) {
+      if(pa[i2] != ""){
+        notarray += "{}, ".format(pa[i2])
+      }
+    }
+    return notarray;
+  }else{
+    for (var i = 0; i < prohibited.length; i++) {
+      if (value.indexOf(prohibited[i].toLowerCase()) > -1) {
+        if(prohibited[i] != ""){
+          notarray += "{}, ".format(prohibited[i])
+        }
+      }
+    }
+    return notarray;
+  }
+}
