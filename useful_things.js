@@ -73,7 +73,8 @@ function eventFire(el, etype){
   }
 }
 
-function eventremove(element) {
-  var new_element = element.cloneNode(true);
+function eventremove(element, deep) {
+  if(deep==undefined){var deep = true}
+  var new_element = element.cloneNode(deep);
   element.parentNode.replaceChild(new_element, element);
 }
