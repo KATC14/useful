@@ -72,3 +72,8 @@ function eventFire(el, etype){
     el.dispatchEvent(evObj);
   }
 }
+
+function eventremove(element) {
+  var new_element = element.cloneNode(true);
+  element.parentNode.replaceChild(new_element, element);
+}
