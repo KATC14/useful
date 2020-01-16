@@ -29,9 +29,13 @@ function rgbToHex(code) {
 }
 
 function ComputedStyle(element, PropertyValue, PseudoElement) {
+  var PValueArray = []
   var CStyle = window.getComputedStyle(element, PseudoElement);
-  var PValue = CStyle.getPropertyValue(PropertyValue)
-  return PValue
+  for (var i = 0; i < PropertyValue.length; i++) {
+    var PValue = CStyle.getPropertyValue(PropertyValue[i])
+    PValueArray.push(PValue)
+  }
+  return PValueArray
 }
 
 /*I realized that moment.js was a thing*/
