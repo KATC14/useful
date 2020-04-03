@@ -84,11 +84,28 @@ function eventremove(element, deep) {
 }
 
 function arrayremoval(array, search) {/*arrayremoval([1,2,3,4], [1,3])*/
-  for (var i = 0, max = search.length; i < max; i++) {
-    const index = array.indexOf(search[i]);
-    if (index > -1) {
-      array.splice(index, 1);
+  var searcharray = []
+  if (parseInt(search) == 0) {
+    for (var i = 0, max = search.length; i < max; i++) {
+      var countof = array.filter(el => el.includes(search[i]));
+      for (var i2 = 0, max2 = countof.length; i2 < max2; i2++) {
+        searcharray.push(countof[i2])
+      }
     }
+    for (var i = 0, max = searcharray.length; i < max; i++) {
+      const index = array.indexOf(searcharray[i]);
+      if (index > -1) {
+        array.splice(index, 1);
+      }
+    }
+    return array
+  } else {
+    for (var i = 0, max = array.length; i < max; i++) {
+      const index = array.indexOf(search[i]);
+      if (index > -1) {
+        array.splice(index, 1);
+      }
+    }
+    return array
   }
-  return array
 }
