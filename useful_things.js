@@ -83,9 +83,9 @@ function eventremove(element, deep) {
   element.parentNode.replaceChild(new_element, element);
 }
 
-function arrayremoval(array, srarch) {/*arrayremoval([1,2,3,4], [1,3])*/
-  for (var i = 0, max = srarch.length; i < max; i++) {
-    const index = array.indexOf(srarch[i]);
+function arrayremoval(array, search) {/*arrayremoval([1,2,3,4], [1,3])*/
+  for (var i = 0, max = search.length; i < max; i++) {
+    const index = array.indexOf(search[i]);
     if (index > -1) {
       array.splice(index, 1);
     }
