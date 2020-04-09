@@ -68,9 +68,7 @@ function checker(value, prohibited, ra) {
 }
 
 function eventFire(el, etype){
-  if (el.fireEvent) {
-    el.fireEvent('on' + etype);
-  } else {
+  if (el.fireEvent){el.fireEvent(etype)}else{
     var evObj = document.createEvent('Events');
     evObj.initEvent(etype, true, false);
     el.dispatchEvent(evObj);
