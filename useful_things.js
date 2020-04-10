@@ -38,6 +38,29 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
   return PValueArray
 }
 
+function TCC(element, background) {
+  var rgb = []
+  rgb.push(background[0].split(', ')[0].split('(')[1])
+  rgb.push(background[0].split(', ')[1])
+  rgb.push(background[0].split(', ')[2].split(')')[0])
+  var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000)
+  if (o > 125) {element.style.color = 'black'}else{element.style.color = 'white'}
+}
+
+function eventFire(el, etype){
+  if (el.fireEvent){el.fireEvent(etype)}else{
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
+function eventremove(element, deep) {
+  if(deep==undefined){var deep = true}
+  var new_element = element.cloneNode(deep);
+  element.parentNode.replaceChild(new_element, element);
+}
+
 /*I realized that moment.js was a thing*/
 
 function checker(value, prohibited, ra) {
@@ -65,20 +88,6 @@ function checker(value, prohibited, ra) {
     }
     return notarray;
   }
-}
-
-function eventFire(el, etype){
-  if (el.fireEvent){el.fireEvent(etype)}else{
-    var evObj = document.createEvent('Events');
-    evObj.initEvent(etype, true, false);
-    el.dispatchEvent(evObj);
-  }
-}
-
-function eventremove(element, deep) {
-  if(deep==undefined){var deep = true}
-  var new_element = element.cloneNode(deep);
-  element.parentNode.replaceChild(new_element, element);
 }
 
 function arrayremoval(array, search) {/*arrayremoval([1,2,3,4], [1,3])*/
