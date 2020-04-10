@@ -48,9 +48,9 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
 
 function TCC(element, background) {
   var rgb = []
-  rgb.push(background[0].split(', ')[0].split('(')[1])
-  rgb.push(background[0].split(', ')[1])
-  rgb.push(background[0].split(', ')[2].split(')')[0])
+  rgb.push(background.split(', ')[0].split('(')[1])
+  rgb.push(background.split(', ')[1])
+  rgb.push(background.split(', ')[2].split(')')[0])
   var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000)
   if (o > 125) {element.style.color = 'black'}else{element.style.color = 'white'}
 }
