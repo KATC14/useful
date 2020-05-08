@@ -6,10 +6,15 @@ String.prototype.format = function () {
 };
 
 function addGlobalStyle(css) {
-  var head, style;
-  head = document.getElementsByTagName('head')[0];
+  var head = document.getElementsByTagName('head')[0];
   if (!head) { return; }
-  style = document.createElement('style');
+  var headNodes = head.childNodes
+  for (var i = 0; i < headNodes.length; i++) {
+    if(headNodes[i].nodeName == 'STYLE'){
+      if(headNodes[i].innerHTML == css){return}
+    }
+  }
+  var style = document.createElement('style');
   style.type = 'text/css';
   style.innerHTML = css;
   head.appendChild(style);
