@@ -44,11 +44,16 @@ function hexToRgb(hex) {
 function ComputedStyle(element, PropertyValue, PseudoElement) {
   var PValueArray = []
   var CStyle = window.getComputedStyle(element, PseudoElement);
-  for (var i = 0; i < PropertyValue.length; i++) {
-    var PValue = CStyle.getPropertyValue(PropertyValue[i])
-    PValueArray.push(PValue)
+  if (Array.isArray(PropertyValue)) {
+    for (var i = 0; i < PropertyValue.length; i++) {
+      var PValue = CStyle.getPropertyValue(PropertyValue[i])
+      PValueArray.push(PValue)
+    }
+    return PValueArray
+  } else {
+    var PValue = CStyle.getPropertyValue(PropertyValue)
+    return PValue
   }
-  return PValueArray
 }
 
 function TCC(element, background) {
