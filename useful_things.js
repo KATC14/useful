@@ -70,7 +70,8 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
   }
 }
 
-function TCC(element, background) {
+function TCC(element, background) {//Text Color Correction probably what TCC stands for I really dont remember'
+  //makes color of text black or white depending on its background color
   var rgb = []
   rgb.push(background.split(', ')[0].split('(')[1])
   rgb.push(background.split(', ')[1])
