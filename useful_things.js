@@ -101,6 +101,9 @@ function ElementCreate(type, attributes, append){
     if (key == "class") {
       element.classList.add.apply(element.classList, attributes[key]); // add all classes at once
     }else if(key == 'style'){
+      //if was supposed to be 'Array.isArray(attributes[key])' 
+      //but I could not get to too add all css values only the last value would be added
+      //and I suspected that it would not work for other arrays so I opted to make it one work for css styles
       for(var i = 0, max = attributes[key].length; i < max; i++){
         element.style.cssText += attributes[key][i]
       }
