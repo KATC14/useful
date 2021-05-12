@@ -109,6 +109,7 @@ function ElementCreate(type, attributes, append){
     }
   }
   append.appendChild(element)
+  return element
 }
 
 function checker(value, prohibited, ra) {
