@@ -95,6 +95,22 @@ function eventremove(element, deep) {
 
 /*I realized that moment.js was a thing*/
 
+function ElementCreate(type, attributes, append){
+  var element = document.createElement(type);
+  for(var key in attributes){
+    if (key == "class") {
+      element.classList.add.apply(element.classList, attributes[key]); // add all classes at once
+    }else if(key == 'style'){
+      for(var i = 0, max = attributes[key].length; i < max; i++){
+        element.style.cssText += attributes[key][i]
+      }
+    }else{
+      element[key] = attributes[key]
+    }
+  }
+  append.appendChild(element)
+}
+
 function checker(value, prohibited, ra) {
   if(ra == true){
     var pa = []
