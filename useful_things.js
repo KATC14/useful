@@ -116,6 +116,18 @@ function ElementCreate(type, attributes, append){
   return element
 }
 
+//I dont really intend on using this but I want it somewhere I can remember it
+function removeComments(string){
+    //Takes a string of code, not an actual function.
+    return string.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,'').trim();//Strip comments
+}
+/*var commentedcode = `
+alert('hello, this code has comments!')//An alert
+/* A block comment here */
+// A single line comment on a newline
+/*`;
+console.log(removeComments(commentedcode));*/
+
 function checker(value, prohibited, ra) {
   if(ra == true){
     var pa = []
