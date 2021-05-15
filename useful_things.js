@@ -128,6 +128,28 @@ alert('hello, this code has comments!')//An alert
 /*`;
 console.log(removeComments(commentedcode));*/
 
+function cloneMassive(node) {//super node clone
+    // Clone the node, don't clone the childNodes right now...
+    var dupNode = node.cloneNode(false);
+    var events = getEventListeners(node);
+
+    for(var p in events) {
+        // All events is in an array so iterate that array:
+        events[p].forEach(function(ev) {
+            // {listener: Function, useCapture: Boolean}
+            dupNode.addEventListener(p, ev.listener, ev.useCapture);
+        });
+    }
+    // Also do the same to all childNodes and append them.
+    if (node.childNodes.length) {
+        [].slice.call(node.childNodes).forEach(function(node) {
+            dupNode.appendChild(cloneMassive(node));
+        });
+    }
+
+    return dupNode;
+}//var dupBody = cloneMassive(document.body);
+
 function checker(value, prohibited, ra) {
   if(ra == true){
     var pa = []
