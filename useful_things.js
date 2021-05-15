@@ -127,7 +127,7 @@ alert('hello, this code has comments!')//An alert
 // A single line comment on a newline
 /*`;
 console.log(removeComments(commentedcode));*/
-
+/*
 function cloneMassive(element) {//super element clone
     // Clone the element, don't clone the childNodes right now...
     var dupelement = element.cloneNode(false);
@@ -149,7 +149,7 @@ function cloneMassive(element) {//super element clone
 
     return dupelement;
 }//var dupBody = cloneMassive(document.body);
-
+*/
 function checker(value, prohibited, ra) {
   if(ra == true){
     var pa = []
