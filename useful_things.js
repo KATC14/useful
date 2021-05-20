@@ -39,19 +39,17 @@ const countOccurrencesOf = (word, search) => {
   return countof
 };
 
+//could be this \/ but it was even confusing to me when I did it...
+//return "#" + ((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2])).toString(16).slice(1);
 function rgbToHex(code) {
   var rgb = code.replace("rgb(", "").replace(")", "").split(',');
-  var r = parseInt(rgb[0]);
-  var g = parseInt(rgb[1]);
-  var b = parseInt(rgb[2]);
+  var [r, g, b] = [parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2])]
   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
 
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  var r = parseInt(result[1], 16)
-  var g = parseInt(result[2], 16)
-  var b = parseInt(result[3], 16)
+  var [r, g, b] = [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
   return 'rgb('+r+', '+g+', '+b+')'
 }
 
@@ -72,10 +70,7 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
 
 function TCC(element, background) {//Text Color Correction probably what TCC stands for I really dont remember'
   //makes color of text black or white depending on its background color
-  var rgb = []
-  rgb.push(background.split(', ')[0].split('(')[1])
-  rgb.push(background.split(', ')[1])
-  rgb.push(background.split(', ')[2].split(')')[0])
+  var rgb = [background.split(', ')[0].split('(')[1], background.split(', ')[1], background.split(', ')[2].split(')')[0]]
   var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000)
   if (o > 125) {element.style.color = 'black'}else{element.style.color = 'white'}
 }
@@ -96,6 +91,7 @@ function eventremove(element, deep) {
 
 /*I realized that moment.js was a thing*/
 
+//Usage - ElementCreate('NodeType', {'id':'idName', 'style':['cssValue'], 'class':['className']}, inputElement)
 function ElementCreate(type, attributes, append){
   var element = document.createElement(type);
   for(var key in attributes){
