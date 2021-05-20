@@ -89,7 +89,7 @@ function eventremove(element, deep) {
   element.parentNode.replaceChild(new_element, element);
 }
 
-/*I realized that moment.js was a thing*/
+/*I realized that moment.js was a thing - Dec 28, 2019*/
 
 //Usage - ElementCreate('NodeType', {'id':'idName', 'style':['cssValue'], 'class':['className']}, inputElement)
 function ElementCreate(type, attributes, append){
