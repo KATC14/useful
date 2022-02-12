@@ -92,6 +92,9 @@ function eventremove(element, deep) {
 /*I realized that moment.js was a thing - Dec 28, 2019*/
 
 //Usage - ElementCreate('NodeType', {'id':'idName', 'style':['cssValue'], 'class':['className']}, inputElement)
+//ElementCreate(inputElement, {'NodeType':{'id':'idName', 'style':'background:green; color:white', 'class':'className'}}) improvement I thought up, no reason to add
+//class names or css styles separately just add them all at once I couldnt see a reason to have to loop over them to add them to the element if im going to add them
+//all at once at the start thay shold all be together if im going to add to the element later I might as well return the element as a variable to change it
 function ElementCreate(type, attributes, append){
   var element = document.createElement(type);
   for(var key in attributes){
