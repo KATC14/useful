@@ -68,11 +68,11 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
   }
 }
 
-function TCC(element, background) {//Text Color Correction probably what TCC stands for I really dont remember'
+function TCC(background) {//Text Color Correction probably what TCC stands for I really dont remember'
   //makes color of text black or white depending on its background color
   var rgb = [background.split(', ')[0].split('(')[1], background.split(', ')[1], background.split(', ')[2].split(')')[0]]
   var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000)
-  if (o > 125) {element.style.color = 'black'}else{element.style.color = 'white'}
+  return (brightness > 125) ? 'black' : 'white';
 }
 
 function eventFire(el, etype){
