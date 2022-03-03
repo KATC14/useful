@@ -70,8 +70,8 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
 
 function TCC(background) {//Text Color Correction probably what TCC stands for I really dont remember'
   //makes color of text black or white depending on its background color
-  var rgb = [background.split(', ')[0].split('(')[1], background.split(', ')[1], background.split(', ')[2].split(')')[0]]
-  var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000)
+  var [r, g, b] = background.replace('rgb(', '').replace(')', '').split(', ')
+  var o = Math.round(((r * 299) + (g * 587) + (b * 114)) / 1000)
   return (o > 125) ? 'black' : 'white';
 }
 
