@@ -1,7 +1,7 @@
 String.prototype.format = function () {
   var args = arguments;
   this.unkeyed_index = 0;
-  return this.replace(/\{(\w*)\}/g, function(match, key) { 
+  return this.replace(/\{(\w*)\}/g, function(match, key) {
     if (key === '') {
       key = this.unkeyed_index;
       this.unkeyed_index++
@@ -35,8 +35,7 @@ function addGlobalStyle(css) {
 }
 
 const countOccurrencesOf = (word, search) => {
-  var countof = word.filter(el => el.includes(search));
-  return countof
+  return word.filter(el => el.includes(search));
 };
 
 //could be this \/ but it was even confusing to me when I did it...
@@ -44,13 +43,13 @@ const countOccurrencesOf = (word, search) => {
 function rgbToHex(code) {
   var rgb = code.replace("rgb(", "").replace(")", "").split(',');
   var [r, g, b] = [parseInt(rgb[0]), parseInt(rgb[1]), parseInt(rgb[2])]
-  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
 }
 
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   var [r, g, b] = [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)]
-  return 'rgb('+r+', '+g+', '+b+')'
+  return `rgb(${r}, ${g}, ${b})`
 }
 
 function ComputedStyle(element, PropertyValue, PseudoElement) {
@@ -63,8 +62,7 @@ function ComputedStyle(element, PropertyValue, PseudoElement) {
     }
     return PValueArray
   } else {
-    var PValue = CStyle.getPropertyValue(PropertyValue)
-    return PValue
+    return CStyle.getPropertyValue(PropertyValue)
   }
 }
 
@@ -160,7 +158,7 @@ function checker(value, prohibited, ra) {
     }
     for (var i2 = 0; i2 < pa.length; i2++) {
       if(pa[i2] != ""){
-        notarray += "{}, ".format(pa[i2])
+        notarray += `${pa[i2]}, `
       }
     }
     return notarray;
@@ -168,7 +166,7 @@ function checker(value, prohibited, ra) {
     for (var i = 0; i < prohibited.length; i++) {
       if (value.indexOf(prohibited[i].toLowerCase()) > -1) {
         if(prohibited[i] != ""){
-          notarray += "{}, ".format(prohibited[i])
+          notarray += `${prohibited[i]}, `
         }
       }
     }
