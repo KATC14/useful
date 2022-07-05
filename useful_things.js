@@ -109,18 +109,16 @@ function ElementCreate(type, attributes, append){
 }
 
 //I dont really intend on using this but I want it somewhere I can remember it
-function removeComments(string){
-    //Takes a string of code, not an actual function.
-    return string.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,'').trim();//Strip comments
-}
+//Takes a string of code, not an actual function.
+const removeComments = (string) => string.replace(/\/\*[\s\S]*?\*\/|\/\/.*/g,'').trim()//Strip comments
 /*var commentedcode = `
 alert('hello, this code has comments!')//An alert
 /* A block comment here */
 // A single line comment on a newline
 /*`;
 console.log(removeComments(commentedcode));*/
-/*
-function cloneMassive(element) {//super element clone
+
+/*function cloneMassive(element) {//super element clone
     // Clone the element, don't clone the childNodes right now...
     var dupelement = element.cloneNode(false);
     var events = getEventListeners(element);
