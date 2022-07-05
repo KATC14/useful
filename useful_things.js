@@ -31,7 +31,7 @@ function addGlobalStyle(css) {
   head.appendChild(style);
 }
 
-const countOccurrencesOf = (word, search) => word.filter(el => el.includes(search)).length
+const countOccurrencesOf = (word, search) => word.filter(el => el.includes(search))
 
 //could be this \/ but it was even confusing to me when I did it...
 //return "#" + ((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2])).toString(16).slice(1);
@@ -140,31 +140,30 @@ console.log(removeComments(commentedcode));*/
     return dupelement;
 }//var dupBody = cloneMassive(document.body);
 */
-function checker(value, prohibited, ra) {
-  if(ra == true){
+function checker(input, array, ra) {
+  if(ra){
     var pa = []
-    var notarray = ""
-    for (var i = 0; i < prohibited.length; i++) {
-      if (value.indexOf(prohibited[i].toLowerCase()) > -1) {
-        pa.push(prohibited[i])
+    var value = ""
+    for (var i = 0; i < array.length; i++) {
+      if (input.indexOf(array[i].toLowerCase()) > -1) {
+        pa.push(array[i])
       }
     }
-    for (var i2 = 0; i2 < pa.length; i2++) {
-      if(pa[i2] != ""){
-        notarray += `${pa[i2]}, `
+    for (var i = 0; i < pa.length; i++) {
+      if(pa[i] != ""){
+        value += `${pa[i]}, `
       }
     }
-    return notarray;
   }else{
-    for (var i = 0; i < prohibited.length; i++) {
-      if (value.indexOf(prohibited[i].toLowerCase()) > -1) {
-        if(prohibited[i] != ""){
-          notarray += `${prohibited[i]}, `
+    for (var i = 0; i < array.length; i++) {
+      if (input.indexOf(array[i].toLowerCase()) > -1) {
+        if(array[i] != ""){
+            value += `${array[i]}, `
         }
       }
     }
-    return notarray;
   }
+  return value.slice(0, -2);
 }
 
 function arrayremoval(array, search) {/*arrayremoval([1,2,3,4], [1,3])*/
