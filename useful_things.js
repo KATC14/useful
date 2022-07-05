@@ -27,14 +27,11 @@ function addGlobalStyle(css) {
     if(headNodes[i].nodeName == 'STYLE' && headNodes[i].innerHTML == css){return}
   }
   var style = document.createElement('style');
-  style.type = 'text/css';
   style.innerHTML = css;
   head.appendChild(style);
 }
 
-const countOccurrencesOf = (word, search) => {
-  return word.filter(el => el.includes(search));
-};
+const countOccurrencesOf = (word, search) => word.filter(el => el.includes(search)).length
 
 //could be this \/ but it was even confusing to me when I did it...
 //return "#" + ((1 << 24) + (parseInt(rgb[0]) << 16) + (parseInt(rgb[1]) << 8) + parseInt(rgb[2])).toString(16).slice(1);
