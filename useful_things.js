@@ -20,13 +20,11 @@ String.prototype.format = function () {
 };
 
 function addGlobalStyle(css) {
-  var head = document.getElementsByTagName('head')[0];
-  if (!head) { return; }
+  var head = document.head;
+  if (!head) {return}
   var headNodes = head.childNodes
   for (var i = 0; i < headNodes.length; i++) {
-    if(headNodes[i].nodeName == 'STYLE'){
-      if(headNodes[i].innerHTML == css){return}
-    }
+    if(headNodes[i].nodeName == 'STYLE' && headNodes[i].innerHTML == css){return}
   }
   var style = document.createElement('style');
   style.type = 'text/css';
