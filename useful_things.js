@@ -80,6 +80,7 @@ function eventremove(element, deep) {
   if(deep==undefined){var deep = true}
   var new_element = element.cloneNode(deep);
   element.parentNode.replaceChild(new_element, element);
+  return new_element
 }
 
 /*I realized that moment.js was a thing - Dec 28, 2019*/
